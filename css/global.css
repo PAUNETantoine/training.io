@@ -1,0 +1,88 @@
+body {
+    display: grid;
+    place-items: center;
+    margin: 0;
+}
+
+canvas {
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: 1;
+}
+
+#hud {
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Permet aux clics de passer à travers */
+}
+
+#hud-armes {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espacement entre les éléments */
+    pointer-events: none; /* Empêche d'interférer avec les clics */
+}
+
+#hud-armes div {
+    width: 150px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.7); /* Fond semi-transparent */
+    border: 2px solid white; /* Bordure blanche par défaut */
+    border-radius: 5px; /* Coins arrondis */
+    position: relative; /* Pour positionner le numéro en haut à gauche */
+    pointer-events: auto; /* Permet d'interagir avec les slots */
+}
+
+#hud-armes div .slot-number {
+    background-color: rgba(0, 0, 0, 0.0); /* Fond semi-transparent */
+    border: none;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    font-size: 14px;
+    font-weight: normal;
+    color: white;
+}
+
+.selectionnee {
+    border: 2px solid green !important; /* Bordure verte quand sélectionnée */
+}
+
+/* Style pour l'image */
+#hud-armes div .item-image {
+    position: absolute; /* Pour positionner l'image */
+    top: 50%; /* Centré verticalement */
+    left: 50%; /* Centré horizontalement */
+    transform: translate(-50%, -50%); /* Ajuste pour centrer parfaitement */
+    height: 40px;
+    width: 40px;
+}
+
+/* Barre de vie centrée en bas de l'écran avec bordures grises */
+#barre-vie-container {
+    position: absolute;
+    bottom: 20px; /* Positionné à 20px du bas de l'écran */
+    left: 50%; /* Centré horizontalement */
+    transform: translateX(-50%); /* Déplace la barre pour la centrer */
+    width: 50%; /* Largeur de la barre de vie plus petite */
+    background-color: #555; /* Fond gris pour le container */
+    border: 5px solid #ccc; /* Bordure grise */
+    border-radius: 5px;
+    height: 20px; /* Hauteur réduite pour une taille plus petite */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Légère ombre portée pour la visibilité */
+}
+
+#barre-vie {
+    height: 100%; /* Remplissage complet de la hauteur du container */
+    background-color: white; /* Couleur de la barre de vie */
+    border-radius: 10px;
+    width: 50%; /* Pourcentage de la vie restante (changer dynamiquement avec JavaScript) */
+}
